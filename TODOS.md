@@ -6,10 +6,6 @@ Authentication:
 - Clerk
 
 
-Database Schema-
-- not neon, what was the other?
-- prisma
-
 
 DB
 - setup postgres
@@ -19,3 +15,13 @@ un: luke
 
 Deploy
 - connect DNS
+
+
+MVP:
+
+- LLook at feed
+- landing page
+- log in
+- log out
+- dummy data
+- add info for a user and have it display in feed. 

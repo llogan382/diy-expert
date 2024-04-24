@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
+import Banner from './components.tsx/banner';
 
 
 export default async function Page() {
   // const { userId } : { userId: string | null } = auth();
-
 
   return (
 
@@ -26,15 +26,8 @@ export default async function Page() {
     <button>See what you can do. </button>
   </div>
   
-  <div className="menu-section">
-    <p>Diy<span>Expert</span></p>
-    <ul>
-      <li>Skills</li>
-      <li>Help out</li>
-      <li>Blog</li>
-      <li>Contact</li>
-    </ul>
-  </div>
+
       </>
   );
 }
+
