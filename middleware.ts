@@ -1,9 +1,10 @@
-import NextAuth from 'next-auth';
-import { authConfig } from 'app/auth.config';
-
-export default NextAuth(authConfig).auth;
-
+import { clerkMiddleware } from '@clerk/nextjs/server';
+ 
+export default clerkMiddleware()
+ 
 export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+  matcher: [
+    '/((?!.*\\..*|_next).*)', // Don't run middleware on static files
+    '/', // Run middleware on index page
+    '/(api|trpc)(.*)'], // Run middleware on API routes
 };
