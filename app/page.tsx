@@ -7,6 +7,7 @@ import Banner from './components.tsx/banner';
 export default async function Page() {
   // const { userId } : { userId: string | null } = auth();
 
+
   return (
 
         <>

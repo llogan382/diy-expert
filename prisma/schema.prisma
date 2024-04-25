@@ -14,49 +14,38 @@ datasource db {
 }
 
 model Skills {
-  id String @id @default(uuid())
-  nameOfSkill String
-  users User[]
-  experience Experience?
+  id          Int     @default(autoincrement())
+  nameOfSkill String  @unique
+  experience  Int?
+  User        User?   @relation(fields: [userId], references: [id])
+  userId      String?
 }
 
 model Location {
-  id String @unique
-  street String
-  street2 String
-  city String
-  state String
-  zipcode String
+  id       String @unique
+  street   String
+  street2  String
+  city     String
+  state    String
+  zipcode  String
   timeZone String
-
 }
-
-model Experience {
-  id String @id @default(uuid())
-  skills Skills @relation(fields: [skillsId], references: [id])
-  skillsId String @unique
-  weeks Int
-  months Int
-  years Int
-}
-
-
 
 model User {
-  id String @id @default(uuid())
-  userName String @unique
+  id        String    @id
+  userName  String    @unique
   firstName String
-  lastName String
-  skills Skills[]
-  payments Payments?
+  lastName  String
+  skills    Skills[]
+  payments  Payments?
 }
 
 model Payments {
-  id String @id @default(uuid())
-  applePay Boolean
-  venmo Boolean
-  check Boolean
-  paypal Boolean
-  paymentsId String @unique
-  user User @relation(fields: [paymentsId], references: [userName])
+  id         String  @id
+  applePay   Boolean
+  venmo      Boolean
+  check      Boolean
+  paypal     Boolean
+  paymentsId String  @unique
+  user       User    @relation(fields: [paymentsId], references: [userName])
 }

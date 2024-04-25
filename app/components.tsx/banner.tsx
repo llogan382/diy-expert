@@ -1,7 +1,10 @@
-export default function Banner(){
+
+export default function Banner({...user}){
+    console.log(user)
     return(
-        <div className="menu-section">
-Banner
-      </div>
+        <div>
+    {user.user}
+</div>
+
     )
 }
